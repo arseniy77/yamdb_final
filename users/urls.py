@@ -1,7 +1,7 @@
-from django.urls import include, path
-from rest_framework.routers import DefaultRouter
+from django.urls import include, path  # isort:skip
+from rest_framework.routers import DefaultRouter  # isort:skip
 
-from users.views import UserViewSet, get_jwt_token, signup
+from users.views import get_jwt_token, signup, UserViewSet  # isort:skip
 
 VERSION = 'v1'
 

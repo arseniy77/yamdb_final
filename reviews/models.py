@@ -2,8 +2,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.db.models.deletion import CASCADE
 
-from .validators import validate_year
-from users.models import User
+from .validators import validate_year  # isort:skip
+from users.models import User  # isort:skip
 
 
 class Categories(models.Model):
