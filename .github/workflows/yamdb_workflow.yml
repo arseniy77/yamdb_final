@@ -68,18 +68,17 @@ jobs:
             sudo docker-compose rm web
 
             # Создаст файл для переменных окружения
-            mkdir api_yamdb
-            rm ./api_yamdb/.env
-            touch ./api_yamdb/.env
+            rm .env
+            touch .env
             # Наполнит файл переменными окружения из секретов GitHub
-            echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> ./api_yamdb/.env
-            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> ./api_yamdb/.env
-            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> ./api_yamdb/.env
-            echo DB_NAME=${{ secrets.DB_NAME }} >> ./api_yamdb/.env
-            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> ./api_yamdb/.env
-            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> ./api_yamdb/.env
-            echo DB_HOST=${{ secrets.DB_HOST }} >> ./api_yamdb/.env
-            echo DB_PORT=${{ secrets.DB_PORT }} >> ./api_yamdb/.env
+            echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
+            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> .env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> .env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> .env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> .env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             sudo docker-compose up -d
 
   send_message:
