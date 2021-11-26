@@ -67,7 +67,8 @@ jobs:
             sudo docker-compose rm web
 
             # Создаст файл для переменных окружения
-            rm ./api_yamdb/.env
+            mkdir api_yamdb
+#            rm ./api_yamdb/.env
             touch ./api_yamdb/.env
             # Наполнит файл переменными окружения из секретов GitHub
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> ./api_yamdb/.env
