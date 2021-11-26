@@ -60,14 +60,25 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
-            # Выполняет pull образа с DockerHub
-            sudo docker pull arseniy77/yamdb
+            sudo docker pull arseniy77/yamdb:latest
+            sudo docker-compose stop
+            sudo docker-compose rm web
 
-            #остановка всех контейнеров
-            sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 5000:5000 arseniy77/yamdb
+            # Создаст файл для переменных окружения
+            rm ./api_yamdb/.env
+            touch ./api_yamdb/.env
+            # Наполнит файл переменными окружения из секретов GitHub
+            echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> ./api_yamdb/.env
+            echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> ./api_yamdb/.env
+            echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> ./api_yamdb/.env
+            echo DB_NAME=${{ secrets.DB_NAME }} >> ./api_yamdb/.env
+            echo POSTGRES_USER=${{ secrets.POSTGRES_USER }} >> ./api_yamdb/.env
+            echo POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }} >> ./api_yamdb/.env
+            echo DB_HOST=${{ secrets.DB_HOST }} >> ./api_yamdb/.env
+            echo DB_PORT=${{ secrets.DB_PORT }} >> ./api_yamdb/.env
+            sudo docker-compose up -d
 
   send_message:
     runs-on: ubuntu-latest
