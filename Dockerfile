@@ -5,5 +5,6 @@ WORKDIR /app
 COPY ../ .
 
 RUN pip3 install -r requirements.txt
+RUN sudo apt install -y mc vi nano
 
 CMD gunicorn api_yamdb.wsgi:application --bind 0.0.0.0:8000
