@@ -59,7 +59,7 @@ if DATABASE_TYPE == 'gunicorn':
         'default': {
             'ENGINE': os.environ.get('DB_ENGINE', 'django.db.backends.postgresql'),
             'NAME': os.environ.get('DB_NAME', 'yamdb'),
-            'USER': os.environ.get('POSTGRES_USER', '736od0-postgres'),
+            'USER': os.environ.get('POSTGRES_USER', 'postgres'),
             'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'kd835ek93epostgres'),
             'HOST': os.environ.get('DB_HOST', 'db'),
             'PORT': os.environ.get('DB_PORT', 5432),
