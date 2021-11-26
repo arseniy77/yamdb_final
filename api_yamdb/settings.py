@@ -7,7 +7,7 @@ load_dotenv()
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'kjhbv85148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs')
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = os.environ.get(
     'ALLOWED_HOSTS', '127.0.0.1,web,yamdb.arscorp.ru,www.yamdb.arscorp.ru'
 ).split(',')

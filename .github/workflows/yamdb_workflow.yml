@@ -69,7 +69,7 @@ jobs:
 
             # Создаст файл для переменных окружения
             mkdir api_yamdb
-            # rm ./api_yamdb/.env
+            rm ./api_yamdb/.env
             touch ./api_yamdb/.env
             # Наполнит файл переменными окружения из секретов GitHub
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> ./api_yamdb/.env
