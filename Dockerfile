@@ -1,5 +1,9 @@
 FROM python:3.8.5-slim
 
+ENV DB_NAME 'yamdb'
+ENV POSTGRES_USER '736od0-postgres'
+ENV POSTGRES_PASSWORD 'kd835ek93epostgres'
+
 WORKDIR /app
 
 COPY ../ .
