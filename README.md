@@ -6,6 +6,14 @@
 The YaMDb project collects user reviews of Titles. The works are divided into categories: "Books", "Films", "Music".
 The works themselves are not stored in YaMDb, you cannot watch a movie or listen to music here.
 
+## Ознакомление с проектом:
+Проект доступен по адресам:
+
+Панель администратора: [http://yamdb.arscorp.ru/admin/](http://yamdb.arscorp.ru/admin/)
+
+Описание API (ReDoc): [http://yamdb.arscorp.ru/redoc/](http://yamdb.arscorp.ru/redoc/)
+
+
 ## .env-файл с настройками
 Внимание! Для запуска контейнера необходимо наличие файла infra/.env с настройками:
 
